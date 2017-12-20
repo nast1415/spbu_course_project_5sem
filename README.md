@@ -14,7 +14,10 @@ There are three types of attributes that can affect speed changing: location att
 * Folder `pressure` contains Python scrypt for calculating real pressure values for the planes
 * Folder `find_arrival_info` contains algorithm for calculating estimated time and distance for each plane according to it's actual flight plan and and scrypts for preparing data to this algorythm and for adding information about arrival_info attributes to our object-attribute matrix
 
-In main folder there is`prepare_for_rf.py` and `random_forest.py` scrypts. First script prepares data for Random Forest algorithm and second runs Random Forest algorithm on prepared data and return the result.
+Scripts in main folder:
+* `prepare_data.py` script prepare waypoint info matrix for future algorithms
+* `prepare_for_rf.py` script prepares data for Random Forest algorithm
+* `random_forest.py` script runs Random Forest algorithm on prepared data and return the result
 
 ***
 
