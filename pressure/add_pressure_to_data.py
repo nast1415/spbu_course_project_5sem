@@ -25,7 +25,7 @@ This dataframe includes columns:
 	-flighthistoryid
 	-action
 '''
-waypoint_info = pd.read_csv("find_forecast/training_with_forecast.csv")
+waypoint_info = pd.read_csv("../find_forecast/training_with_forecast.csv")
 number_of_flights = waypoint_info['received'].count()
 
 '''
@@ -43,7 +43,7 @@ This dataframe includes columns:
 	- altimeter
 	- elevation
 '''
-weather_info = pd.read_csv("weather_data/full_stations_weather_info.csv")
+weather_info = pd.read_csv("../weather_data/full_stations_weather_info.csv")
 number_of_forecasts = weather_info['weather_station_code'].count()
 
 #Array for the result
@@ -69,4 +69,4 @@ for i in range(number_of_flights):
 
 #Create special column for real pressure in the height of the plane
 waypoint_info['pressure'] = pressure
-waypoint_info.to_csv("pressure/training_with_pressure.csv")
+waypoint_info.to_csv("training_with_pressure.csv")

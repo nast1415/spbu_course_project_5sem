@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 
 # Open csv files with training and test data
-df = pd.read_csv('full_waypoint_info.csv')
+df = pd.read_csv('find_arrival_info/full_waypoint_info.csv')
 #df = df[['altitude', 'groundspeed', 'latitudedegrees', 'longitudedegrees', 'action']].dropna()
 df = df[['altitude', 'groundspeed', 'latitudedegrees', 'longitudedegrees', 'wind_dir', 'wind_speed', 'wind_gusts', 'visib',
 	'pressure', 'remaining_time', 'remaining_distance', 'is_avg_speed_bigger', 'action']].dropna()

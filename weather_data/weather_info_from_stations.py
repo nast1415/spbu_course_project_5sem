@@ -20,7 +20,7 @@ This dataframe includes columns:
 	- altimeter
 '''
 
-weather_info = pd.read_csv("primary_data/train/weather_from_stations.csv")
+weather_info = pd.read_csv("weather_from_stations.csv")
 number_of_forecasts = weather_info['weather_station_code'].count()
 
 #Delete forecasts with nan value of the wind_speed, wind_direction, visibility
@@ -53,7 +53,7 @@ weather_info.index = np.array(range(number_of_forecasts))
 
 #This dataframe contains name of the station and it's elevation
 #We add to the weather_info dataframe column 'elevation' with data from stationinfo.csv about stations' elevation 
-station_elevation = pd.read_csv("primary_data/stationelev.csv")
+station_elevation = pd.read_csv("stationelev.csv")
 number_of_stations = station_elevation['station_name'].count()
 
 #Sort values in the station_elevation (in order of station names) and fix indexes
@@ -71,7 +71,7 @@ weather_station_array = np.array(weather_info['weather_station_code'])
 #Create null array for future values of stations' elevation
 elev_array = np.zeros(number_of_forecasts)
 
-print "Start getting elevation"
+print("Start getting elevation")
 #Get elevation from stationinfo.csv and fill elev_array 
 for i in range(number_of_forecasts):
 	for j in range(number_of_stations):
@@ -82,4 +82,4 @@ for i in range(number_of_forecasts):
 #Create new column 'elevation' in the weather_info dataframe and fill it with the values from elev_array
 weather_info['elevation'] = elev_array
 
-weather_info.to_csv("weather_data/full_stations_weather_info.csv")
+weather_info.to_csv("full_stations_weather_info.csv")

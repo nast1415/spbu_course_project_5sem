@@ -12,7 +12,7 @@
  * Best forecast is a last suitable forecast.
  **/
 
-const int FLIGHT_SIZE = 246547;
+const int FLIGHT_SIZE = 332338;
 const int FORECASTS_SIZE = 79709;
 
 //Vectors with date_time values for flight and forecast
@@ -94,7 +94,7 @@ std::string get_minute_from_str(std::string date_time_str){
 
 int main() {
 	//We use ifstream to read string values correctly and simply
-	std::ifstream file("find_forecast/received_info");
+	std::ifstream file("received_info");
 
     if (file.is_open()){
 		for (int i = 0; i < FLIGHT_SIZE; i++){
@@ -134,7 +134,7 @@ int main() {
     file.close();
 
 	//Open file to write result
-    freopen("find_forecast/forecast", "w", stdout);
+    freopen("forecast", "w", stdout);
     
     for (int i = 0; i < FLIGHT_SIZE; i++){
 		int nearest_forecast = -1;
@@ -174,28 +174,28 @@ int main() {
 	fclose(stdout);
 
 	//Open file to write wind_dir
-    freopen("find_forecast/wind_dir", "w", stdout);
+    freopen("wind_dir", "w", stdout);
     for (int i = 0; i < FLIGHT_SIZE; i++) {
 		printf("%lf ", wind_dir[i]);
 	}
 	fclose(stdout);
 
 	//Open file to write wind_speed
-    freopen("find_forecast/wind_speed", "w", stdout);
+    freopen("wind_speed", "w", stdout);
     for (int i = 0; i < FLIGHT_SIZE; i++) {
 		printf("%lf ", wind_speed[i]);
 	}
 	fclose(stdout);
 
 	//Open file to write wind_gusts
-    freopen("find_forecast/wind_gust", "w", stdout);
+    freopen("wind_gust", "w", stdout);
     for (int i = 0; i < FLIGHT_SIZE; i++) {
 		printf("%lf ", wind_gust[i]);
 	}
 	fclose(stdout);
 
 	//Open file to write visibility
-    freopen("find_forecast/visib", "w", stdout);
+    freopen("visib", "w", stdout);
     for (int i = 0; i < FLIGHT_SIZE; i++) {
 		printf("%lf ", visib[i]);
 	}

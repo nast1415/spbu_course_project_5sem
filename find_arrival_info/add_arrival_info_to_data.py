@@ -26,7 +26,7 @@ This dataframe includes columns:
 	-flighthistoryid
 	-action
 '''
-waypoint_info = pd.read_csv("pressure/training_with_pressure.csv")
+waypoint_info = pd.read_csv("../pressure/training_with_pressure.csv")
 number_of_flights = waypoint_info['received'].count()
 
 
@@ -40,12 +40,12 @@ waypoint_info = waypoint_info.sort_values(['flighthistoryid', 'received'])
 waypoint_info.index = np.array(range(number_of_flights))
 
 #Read information about forecasts to the array
-with open('find_arrival_info/remaining_time') as inp:
+with open('remaining_time') as inp:
     remaining_time_array = inp.read().split()
-with open('find_arrival_info/remaining_distance') as inp2:
+with open('remaining_distance') as inp2:
     remaining_distance_array = inp2.read().split()
     print(len(remaining_distance_array))
-with open('find_arrival_info/speed_indicator') as inp3:
+with open('speed_indicator') as inp3:
     is_avg_speed_bigger_array = inp3.read().split()    
 
 waypoint_info['remaining_time'] = remaining_time_array

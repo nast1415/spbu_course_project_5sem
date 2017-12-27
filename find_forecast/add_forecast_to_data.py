@@ -25,7 +25,7 @@ This dataframe includes columns:
 	-flighthistoryid
 	-action
 '''
-waypoint_info = pd.read_csv("find_nearest_station/training_with_nearest.csv")
+waypoint_info = pd.read_csv("../find_nearest_station/training_with_nearest.csv")
 number_of_flights = waypoint_info['received'].count()
 
 #Support function. We're going to sort values in waypoint_info dataframe in order of received time.
@@ -46,19 +46,19 @@ waypoint_info = waypoint_info.sort_values(['nearest_station_name', 'received'])
 waypoint_info.index = np.array(range(number_of_flights))
 
 #Read information about forecasts to the array
-with open('find_forecast/forecast') as inp:
-    forecast_for_flight = inp.read().split()
+with open('forecast') as inp:
+	forecast_for_flight = inp.read().split()
 
-with open('find_forecast/wind_dir') as inp:
-    wind_dir = inp.read().split()
+with open('wind_dir') as inp:
+	wind_dir = inp.read().split()
 
-with open('find_forecast/wind_speed') as inp:
+with open('wind_speed') as inp:
 	wind_speed = inp.read().split()
 
-with open('find_forecast/wind_gust') as inp:
+with open('wind_gust') as inp:
 	wind_gust = inp.read().split()
 
-with open('find_forecast/visib') as inp:
+with open('visib') as inp:
 	visib = inp.read().split()
 
 waypoint_info['forecast'] = forecast_for_flight
@@ -66,4 +66,4 @@ waypoint_info['wind_dir'] = wind_dir
 waypoint_info['wind_speed'] = wind_speed
 waypoint_info['wind_gusts'] = wind_gust
 waypoint_info['visib'] = visib
-waypoint_info.to_csv("find_forecast/training_with_forecast.csv")
+waypoint_info.to_csv("training_with_forecast.csv")

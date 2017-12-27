@@ -8,7 +8,7 @@
  * This file contains algorythm for finding id of the weather station that is nearest to the plane at the moment
  **/
 
-const int FLIGHT_SIZE = 246547;
+const int FLIGHT_SIZE = 332338;
 const int STATIONS_SIZE = 4470;
 const double earth_radius = 6372797.560856;
 const double degrees_to_rad = 0.017453292519943295769236907684886;
@@ -38,9 +38,9 @@ double getSquareDistance(double lat1, double long1, double lat2, double long2) {
 
 int main() {
 	//Open file with preparing coordinates
-	freopen("find_nearest_station/flight_array", "r", stdin);
+	freopen("flight_array", "r", stdin);
 	//Open file for writing the result ids
-	freopen("find_nearest_station/result_nearest", "w", stdout);
+	freopen("result_nearest", "w", stdout);
 
 	//Read data
 	for (int i = 0; i < STATIONS_SIZE; i++) {

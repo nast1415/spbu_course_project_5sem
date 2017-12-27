@@ -25,7 +25,7 @@ This dataframe includes columns:
 	-flighthistoryid
 	-action
 '''
-waypoint_info = pd.read_csv("find_nearest_station/training_with_nearest.csv")
+waypoint_info = pd.read_csv("../find_nearest_station/training_with_nearest.csv")
 number_of_flights = waypoint_info['received'].count()
 
 #Support function. We're going to sort values in waypoint_info dataframe in order of received time.
@@ -51,7 +51,7 @@ This dataframe includes columns:
 	- altimeter
 	- elevation
 '''
-weather_info = pd.read_csv("weather_data/full_stations_weather_info.csv")
+weather_info = pd.read_csv("../weather_data/full_stations_weather_info.csv")
 number_of_forecasts = weather_info['weather_station_code'].count()
 
 #Correct format of received values in waypoint_info
@@ -82,7 +82,7 @@ stat_wind_gust = np.array(weather_info['wind_gusts'])
 stat_visib = np.array(weather_info['visibility'])
 
 #Write data to the received_info file
-f = open('find_forecast/received_info', 'w')
+f = open('received_info', 'w')
 
 for i in range(number_of_flights):
 	f.write(prepare_datetime(received_flight[i]))

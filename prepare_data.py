@@ -3,7 +3,7 @@ import pandas as pd
 
 
 # Read data from flightplan
-data = pd.read_csv('primary_data/train/training_matrix.csv')
+data = pd.read_csv('primary_data/training_matrix.csv')
 number_of_notes = data['received'].count()
 
 index_array = np.array(data.index).astype(int)

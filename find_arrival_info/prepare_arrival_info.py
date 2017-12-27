@@ -33,7 +33,7 @@ This dataframe includes columns:
 	-flighthistoryid
 	-action
 '''
-waypoint_info = pd.read_csv("pressure/training_with_pressure.csv")
+waypoint_info = pd.read_csv("../pressure/training_with_pressure.csv")
 number_of_flights = waypoint_info['received'].count()
 
 
@@ -49,7 +49,7 @@ This dataframe includes columns:
 	- departure
 	- arrival (estimated times of departure and arrival)
 '''
-arriving_info = pd.read_csv("primary_data/arrival_info.csv")
+arriving_info = pd.read_csv("../primary_data/arrival_info.csv")
 number_of_notes = arriving_info['flighthistoryid'].count()
 
 
@@ -93,7 +93,7 @@ arriving_long_array = np.array(arriving_info['arrival_long']).astype(float)
 speed_array = np.array(waypoint_info['groundspeed']).astype(float)
 
 #Open file to write prepared data to it
-f = open('find_arrival_info/arrival_info', 'w')
+f = open('arrival_info', 'w')
 
 for i in range(number_of_flights):
 	f.write(str(waypoint_historyid_array[i]) + " ")
@@ -111,7 +111,7 @@ for i in range(number_of_notes):
 	f.write(prepare_datetime(received_flightplan[i]))
 
 f.close()
-f2 = open('find_arrival_info/arrival_info2', 'w')
+f2 = open('arrival_info2', 'w')
 
 for i in range(number_of_flights):
 	f2.write(str(waypoint_lat_array[i]) + " ")

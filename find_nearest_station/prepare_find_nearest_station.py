@@ -18,7 +18,7 @@ This dataframe includes columns:
 	-flighthistoryid
 	-action
 '''
-waypoint_info = pd.read_csv("primary_data/delta3_training_matrix.csv")
+waypoint_info = pd.read_csv("../primary_data/delta3_training_matrix.csv")
 number_of_flights = waypoint_info['received'].count()
 
 '''
@@ -36,7 +36,7 @@ This dataframe includes columns:
 	- altimeter
 	- elevation
 '''
-weather_info = pd.read_csv("weather_data/full_stations_weather_info.csv")
+weather_info = pd.read_csv("../weather_data/full_stations_weather_info.csv")
 number_of_forecasts = weather_info['weather_station_code'].count()
 
 
@@ -75,7 +75,7 @@ ids_array = np.array(unique_stations['id'])
 #To calculate the result faster we use c++ algorithm in 'find_nearest_station.cpp'
 
 #And now we're going to prepare coordinate arrays for this algorithm. We will save values of plane's and station's coordinates to the 'flight_array' file
-f = open('find_nearest_station/flight_array', 'w')
+f = open('flight_array', 'w')
 
 for i in range(amount_of_unique_stations):
 	f.write(str(ids_array[i]) + " ")

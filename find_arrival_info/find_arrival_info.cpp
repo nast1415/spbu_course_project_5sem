@@ -11,7 +11,7 @@
  * and indicator of plane speed - is it bigger than averege remaining speed, or not
  **/
 
-const int FLIGHT_SIZE = 246547;
+const int FLIGHT_SIZE = 332338;
 const int NOTES_SIZE = 285913;
 const double earth_radius = 6372797.560856;
 const double degrees_to_rad = 0.017453292519943295769236907684886;
@@ -97,7 +97,7 @@ std::string get_minute_from_str(std::string date_time_str){
 
 int main() {
 	//Read prepared information from file 
-	std::ifstream file("find_arrival_info/arrival_info");
+	std::ifstream file("arrival_info");
     if(file.is_open()){
 		for(int i = 0; i < FLIGHT_SIZE; i++){
             file >> flight_history[i];
@@ -140,7 +140,7 @@ int main() {
     file.close();
 
     //We use two files, because it is too much information
-    freopen("find_arrival_info/arrival_info2", "r", stdin);
+    freopen("arrival_info2", "r", stdin);
 
     for(int i = 0; i < FLIGHT_SIZE; i++){
         scanf("%lf%lf", &flight_array[i].first, &flight_array[i].second);
@@ -240,21 +240,21 @@ int main() {
 	}
 	//fclose(stdout);
 
-	freopen("find_arrival_info/remaining_time", "w", stdout);
+	freopen("remaining_time", "w", stdout);
 
 	for (int i = 0; i < FLIGHT_SIZE; i++) {
 		printf("%d ", remaining_time_array[i]);
 	}
 	fclose(stdout);
 
-	freopen("find_arrival_info/remaining_distance", "w", stdout);
+	freopen("remaining_distance", "w", stdout);
 
 	for (int i = 0; i < FLIGHT_SIZE; i++) {
 		printf("%lf ", remaining_distance_array[i]);
 	}
 	fclose(stdout);
 
-	freopen("find_arrival_info/speed_indicator", "w", stdout);
+	freopen("speed_indicator", "w", stdout);
 	for (int i = 0; i < FLIGHT_SIZE; i++) {
 		printf("%d ", is_avg_speed_bigger_array[i]);
 	}
